@@ -1,0 +1,1460 @@
+{
+  "method": "shap_gradient",
+  "top_features": [
+    {
+      "feature": "울산_입항수",
+      "importance": 0.0001927775901091795,
+      "importance_norm": 1.0,
+      "group": "입항통계",
+      "rank": 1
+    },
+    {
+      "feature": "광양_컨테이너비율",
+      "importance": 0.00017778066886818355,
+      "importance_norm": 0.9222060965047729,
+      "group": "선박유형",
+      "rank": 2
+    },
+    {
+      "feature": "인천_유조선비율",
+      "importance": 0.0001753844918425078,
+      "importance_norm": 0.9097763476718371,
+      "group": "선박유형",
+      "rank": 3
+    },
+    {
+      "feature": "울산_lag7",
+      "importance": 0.000172561580609541,
+      "importance_norm": 0.8951329898449858,
+      "group": "래그",
+      "rank": 4
+    },
+    {
+      "feature": "울산_일반화물비율",
+      "importance": 0.0001699993216488973,
+      "importance_norm": 0.8818417200496087,
+      "group": "선박유형",
+      "rank": 5
+    },
+    {
+      "feature": "인천_입항수",
+      "importance": 0.00015891812510611833,
+      "importance_norm": 0.8243599529183612,
+      "group": "입항통계",
+      "rank": 6
+    },
+    {
+      "feature": "부산_평균체류",
+      "importance": 0.00014164405080988805,
+      "importance_norm": 0.7347537165998808,
+      "group": "입항통계",
+      "rank": 7
+    },
+    {
+      "feature": "울산_lag28",
+      "importance": 0.00014038805476214368,
+      "importance_norm": 0.7282384569836928,
+      "group": "래그",
+      "rank": 8
+    },
+    {
+      "feature": "울산_ma7",
+      "importance": 0.00013941495204321128,
+      "importance_norm": 0.7231906569858751,
+      "group": "이동평균",
+      "rank": 9
+    },
+    {
+      "feature": "울산_벌크비율",
+      "importance": 0.00013572613009311808,
+      "importance_norm": 0.7040555389049611,
+      "group": "선박유형",
+      "rank": 10
+    },
+    {
+      "feature": "광양_유조선비율",
+      "importance": 0.00012166968160554303,
+      "importance_norm": 0.6311401731738396,
+      "group": "선박유형",
+      "rank": 11
+    },
+    {
+      "feature": "광양_lag3",
+      "importance": 0.00010150793666738575,
+      "importance_norm": 0.5265546509316605,
+      "group": "래그",
+      "rank": 12
+    },
+    {
+      "feature": "울산_lag14",
+      "importance": 0.00010066635350226122,
+      "importance_norm": 0.5221890855946942,
+      "group": "래그",
+      "rank": 13
+    },
+    {
+      "feature": "광양_입항수",
+      "importance": 9.42235729347628e-05,
+      "importance_norm": 0.4887682893089354,
+      "group": "입항통계",
+      "rank": 14
+    },
+    {
+      "feature": "광양_체선율",
+      "importance": 9.292137415244813e-05,
+      "importance_norm": 0.4820133610956655,
+      "group": "체선율",
+      "rank": 15
+    },
+    {
+      "feature": "울산_lag1",
+      "importance": 9.018880722942184e-05,
+      "importance_norm": 0.4678386485604652,
+      "group": "래그",
+      "rank": 16
+    },
+    {
+      "feature": "부산_체선율",
+      "importance": 8.86163363085317e-05,
+      "importance_norm": 0.4596817309436428,
+      "group": "체선율",
+      "rank": 17
+    },
+    {
+      "feature": "부산_입항수",
+      "importance": 8.56574676320648e-05,
+      "importance_norm": 0.44433311768008266,
+      "group": "입항통계",
+      "rank": 18
+    },
+    {
+      "feature": "울산_ma30",
+      "importance": 8.357842060408341e-05,
+      "importance_norm": 0.43354842519168757,
+      "group": "이동평균",
+      "rank": 19
+    },
+    {
+      "feature": "울산_ma14",
+      "importance": 8.280321398273104e-05,
+      "importance_norm": 0.42952717655530126,
+      "group": "이동평균",
+      "rank": 20
+    }
+  ],
+  "all_features": [
+    {
+      "feature": "울산_입항수",
+      "importance": 0.0001927775901091795,
+      "importance_norm": 1.0,
+      "group": "입항통계",
+      "rank": 1
+    },
+    {
+      "feature": "광양_컨테이너비율",
+      "importance": 0.00017778066886818355,
+      "importance_norm": 0.9222060965047729,
+      "group": "선박유형",
+      "rank": 2
+    },
+    {
+      "feature": "인천_유조선비율",
+      "importance": 0.0001753844918425078,
+      "importance_norm": 0.9097763476718371,
+      "group": "선박유형",
+      "rank": 3
+    },
+    {
+      "feature": "울산_lag7",
+      "importance": 0.000172561580609541,
+      "importance_norm": 0.8951329898449858,
+      "group": "래그",
+      "rank": 4
+    },
+    {
+      "feature": "울산_일반화물비율",
+      "importance": 0.0001699993216488973,
+      "importance_norm": 0.8818417200496087,
+      "group": "선박유형",
+      "rank": 5
+    },
+    {
+      "feature": "인천_입항수",
+      "importance": 0.00015891812510611833,
+      "importance_norm": 0.8243599529183612,
+      "group": "입항통계",
+      "rank": 6
+    },
+    {
+      "feature": "부산_평균체류",
+      "importance": 0.00014164405080988805,
+      "importance_norm": 0.7347537165998808,
+      "group": "입항통계",
+      "rank": 7
+    },
+    {
+      "feature": "울산_lag28",
+      "importance": 0.00014038805476214368,
+      "importance_norm": 0.7282384569836928,
+      "group": "래그",
+      "rank": 8
+    },
+    {
+      "feature": "울산_ma7",
+      "importance": 0.00013941495204321128,
+      "importance_norm": 0.7231906569858751,
+      "group": "이동평균",
+      "rank": 9
+    },
+    {
+      "feature": "울산_벌크비율",
+      "importance": 0.00013572613009311808,
+      "importance_norm": 0.7040555389049611,
+      "group": "선박유형",
+      "rank": 10
+    },
+    {
+      "feature": "광양_유조선비율",
+      "importance": 0.00012166968160554303,
+      "importance_norm": 0.6311401731738396,
+      "group": "선박유형",
+      "rank": 11
+    },
+    {
+      "feature": "광양_lag3",
+      "importance": 0.00010150793666738575,
+      "importance_norm": 0.5265546509316605,
+      "group": "래그",
+      "rank": 12
+    },
+    {
+      "feature": "울산_lag14",
+      "importance": 0.00010066635350226122,
+      "importance_norm": 0.5221890855946942,
+      "group": "래그",
+      "rank": 13
+    },
+    {
+      "feature": "광양_입항수",
+      "importance": 9.42235729347628e-05,
+      "importance_norm": 0.4887682893089354,
+      "group": "입항통계",
+      "rank": 14
+    },
+    {
+      "feature": "광양_체선율",
+      "importance": 9.292137415244813e-05,
+      "importance_norm": 0.4820133610956655,
+      "group": "체선율",
+      "rank": 15
+    },
+    {
+      "feature": "울산_lag1",
+      "importance": 9.018880722942184e-05,
+      "importance_norm": 0.4678386485604652,
+      "group": "래그",
+      "rank": 16
+    },
+    {
+      "feature": "부산_체선율",
+      "importance": 8.86163363085317e-05,
+      "importance_norm": 0.4596817309436428,
+      "group": "체선율",
+      "rank": 17
+    },
+    {
+      "feature": "부산_입항수",
+      "importance": 8.56574676320648e-05,
+      "importance_norm": 0.44433311768008266,
+      "group": "입항통계",
+      "rank": 18
+    },
+    {
+      "feature": "울산_ma30",
+      "importance": 8.357842060408341e-05,
+      "importance_norm": 0.43354842519168757,
+      "group": "이동평균",
+      "rank": 19
+    },
+    {
+      "feature": "울산_ma14",
+      "importance": 8.280321398273104e-05,
+      "importance_norm": 0.42952717655530126,
+      "group": "이동평균",
+      "rank": 20
+    },
+    {
+      "feature": "인천_벌크비율",
+      "importance": 8.262306147452303e-05,
+      "importance_norm": 0.42859266695744824,
+      "group": "선박유형",
+      "rank": 21
+    },
+    {
+      "feature": "부산_lag21",
+      "importance": 7.990134784591233e-05,
+      "importance_norm": 0.41447425398699217,
+      "group": "래그",
+      "rank": 22
+    },
+    {
+      "feature": "울산_lag3",
+      "importance": 7.789825727936695e-05,
+      "importance_norm": 0.40408357234494585,
+      "group": "래그",
+      "rank": 23
+    },
+    {
+      "feature": "부산_lag28",
+      "importance": 7.237092685645456e-05,
+      "importance_norm": 0.37541151342055534,
+      "group": "래그",
+      "rank": 24
+    },
+    {
+      "feature": "울산_유조선비율",
+      "importance": 7.219202309383556e-05,
+      "importance_norm": 0.37448348147183314,
+      "group": "선박유형",
+      "rank": 25
+    },
+    {
+      "feature": "dayofweek",
+      "importance": 7.218718205093347e-05,
+      "importance_norm": 0.3744583694092778,
+      "group": "시간",
+      "rank": 26
+    },
+    {
+      "feature": "부산_ma7",
+      "importance": 7.127634150902291e-05,
+      "importance_norm": 0.36973354355480625,
+      "group": "이동평균",
+      "rank": 27
+    },
+    {
+      "feature": "광양_일반화물비율",
+      "importance": 7.02702101151789e-05,
+      "importance_norm": 0.36451441308806376,
+      "group": "선박유형",
+      "rank": 28
+    },
+    {
+      "feature": "인천_평균체류",
+      "importance": 6.886905411860267e-05,
+      "importance_norm": 0.3572461616497992,
+      "group": "입항통계",
+      "rank": 29
+    },
+    {
+      "feature": "부산_lag3",
+      "importance": 6.787757589011408e-05,
+      "importance_norm": 0.3521030419130753,
+      "group": "래그",
+      "rank": 30
+    },
+    {
+      "feature": "울산_컨테이너비율",
+      "importance": 6.721594654263045e-05,
+      "importance_norm": 0.348670955501429,
+      "group": "선박유형",
+      "rank": 31
+    },
+    {
+      "feature": "광양_강수량",
+      "importance": 6.68884650671255e-05,
+      "importance_norm": 0.3469722026779319,
+      "group": "기상",
+      "rank": 32
+    },
+    {
+      "feature": "울산_강수량",
+      "importance": 6.506604150800156e-05,
+      "importance_norm": 0.33751869950833724,
+      "group": "기상",
+      "rank": 33
+    },
+    {
+      "feature": "광양_습도",
+      "importance": 6.391205755320117e-05,
+      "importance_norm": 0.33153260976550547,
+      "group": "기상",
+      "rank": 34
+    },
+    {
+      "feature": "광양_기온",
+      "importance": 6.275609767739942e-05,
+      "importance_norm": 0.32553627027839455,
+      "group": "기상",
+      "rank": 35
+    },
+    {
+      "feature": "광양_풍속",
+      "importance": 5.9699473354646826e-05,
+      "importance_norm": 0.3096805667133615,
+      "group": "기상",
+      "rank": 36
+    },
+    {
+      "feature": "광양_lag21",
+      "importance": 5.931120580293745e-05,
+      "importance_norm": 0.30766649676109437,
+      "group": "래그",
+      "rank": 37
+    },
+    {
+      "feature": "울산_lag2",
+      "importance": 5.567850442660611e-05,
+      "importance_norm": 0.28882249433179763,
+      "group": "래그",
+      "rank": 38
+    },
+    {
+      "feature": "광양_평균체류",
+      "importance": 5.3983968085691514e-05,
+      "importance_norm": 0.2800323837180334,
+      "group": "입항통계",
+      "rank": 39
+    },
+    {
+      "feature": "울산_체선율",
+      "importance": 5.1357504723274734e-05,
+      "importance_norm": 0.26640806482842966,
+      "group": "체선율",
+      "rank": 40
+    },
+    {
+      "feature": "광양_ma14",
+      "importance": 5.0670038878359165e-05,
+      "importance_norm": 0.2628419561094327,
+      "group": "이동평균",
+      "rank": 41
+    },
+    {
+      "feature": "인천_일반화물비율",
+      "importance": 5.046936232828138e-05,
+      "importance_norm": 0.2618009816374304,
+      "group": "선박유형",
+      "rank": 42
+    },
+    {
+      "feature": "부산_lag7",
+      "importance": 4.920285660795189e-05,
+      "importance_norm": 0.25523120493458745,
+      "group": "래그",
+      "rank": 43
+    },
+    {
+      "feature": "부산_ma14",
+      "importance": 4.824790407777512e-05,
+      "importance_norm": 0.2502775558634691,
+      "group": "이동평균",
+      "rank": 44
+    },
+    {
+      "feature": "광양_lag28",
+      "importance": 4.7115296195324485e-05,
+      "importance_norm": 0.2444023507537404,
+      "group": "래그",
+      "rank": 45
+    },
+    {
+      "feature": "광양_ma30",
+      "importance": 4.7096112886361586e-05,
+      "importance_norm": 0.24430284069682956,
+      "group": "이동평균",
+      "rank": 46
+    },
+    {
+      "feature": "부산_lag1",
+      "importance": 4.636108169176434e-05,
+      "importance_norm": 0.2404899950534072,
+      "group": "래그",
+      "rank": 47
+    },
+    {
+      "feature": "울산_평균체류",
+      "importance": 4.345637351064789e-05,
+      "importance_norm": 0.2254223298778473,
+      "group": "입항통계",
+      "rank": 48
+    },
+    {
+      "feature": "인천_체선율",
+      "importance": 4.090997442374071e-05,
+      "importance_norm": 0.2122133304009629,
+      "group": "체선율",
+      "rank": 49
+    },
+    {
+      "feature": "부산_강수량",
+      "importance": 4.020069846905587e-05,
+      "importance_norm": 0.20853408555573405,
+      "group": "기상",
+      "rank": 50
+    },
+    {
+      "feature": "광양_lag14",
+      "importance": 3.8705142960154216e-05,
+      "importance_norm": 0.20077615317337236,
+      "group": "래그",
+      "rank": 51
+    },
+    {
+      "feature": "울산_최대풍속",
+      "importance": 3.7590182900460345e-05,
+      "importance_norm": 0.19499249305467073,
+      "group": "기상",
+      "rank": 52
+    },
+    {
+      "feature": "울산_기온",
+      "importance": 3.660667857585765e-05,
+      "importance_norm": 0.18989073654840002,
+      "group": "기상",
+      "rank": 53
+    },
+    {
+      "feature": "부산_일반화물비율",
+      "importance": 3.454031421395327e-05,
+      "importance_norm": 0.17917183316998297,
+      "group": "선박유형",
+      "rank": 54
+    },
+    {
+      "feature": "광양_ma7",
+      "importance": 3.353452960176093e-05,
+      "importance_norm": 0.17395450157234907,
+      "group": "이동평균",
+      "rank": 55
+    },
+    {
+      "feature": "광양_lag7",
+      "importance": 3.290378958770005e-05,
+      "importance_norm": 0.17068264817017895,
+      "group": "래그",
+      "rank": 56
+    },
+    {
+      "feature": "울산_풍속",
+      "importance": 3.2779765458098727e-05,
+      "importance_norm": 0.17003929471020943,
+      "group": "기상",
+      "rank": 57
+    },
+    {
+      "feature": "부산_유조선비율",
+      "importance": 3.270393664557617e-05,
+      "importance_norm": 0.1696459460202522,
+      "group": "선박유형",
+      "rank": 58
+    },
+    {
+      "feature": "부산_최대풍속",
+      "importance": 3.2587170991443706e-05,
+      "importance_norm": 0.1690402446310693,
+      "group": "기상",
+      "rank": 59
+    },
+    {
+      "feature": "부산_ma30",
+      "importance": 3.1623476480746405e-05,
+      "importance_norm": 0.16404124806641926,
+      "group": "이동평균",
+      "rank": 60
+    },
+    {
+      "feature": "month",
+      "importance": 3.0513291748291725e-05,
+      "importance_norm": 0.1582823591217762,
+      "group": "시간",
+      "rank": 61
+    },
+    {
+      "feature": "부산_lag2",
+      "importance": 3.0458619211540673e-05,
+      "importance_norm": 0.1579987549086512,
+      "group": "래그",
+      "rank": 62
+    },
+    {
+      "feature": "is_weekend",
+      "importance": 2.8570038849133772e-05,
+      "importance_norm": 0.1482020749037953,
+      "group": "시간",
+      "rank": 63
+    },
+    {
+      "feature": "인천_컨테이너비율",
+      "importance": 2.725529962485483e-05,
+      "importance_norm": 0.14138209534323365,
+      "group": "선박유형",
+      "rank": 64
+    },
+    {
+      "feature": "광양_벌크비율",
+      "importance": 2.694833875435223e-05,
+      "importance_norm": 0.13978978956573765,
+      "group": "선박유형",
+      "rank": 65
+    },
+    {
+      "feature": "인천_lag1",
+      "importance": 2.6256730664794667e-05,
+      "importance_norm": 0.13620219367782416,
+      "group": "래그",
+      "rank": 66
+    },
+    {
+      "feature": "인천_습도",
+      "importance": 2.5972297240818677e-05,
+      "importance_norm": 0.1347267450854079,
+      "group": "기상",
+      "rank": 67
+    },
+    {
+      "feature": "인천_lag2",
+      "importance": 2.5541136876040753e-05,
+      "importance_norm": 0.13249017617439632,
+      "group": "래그",
+      "rank": 68
+    },
+    {
+      "feature": "울산_lag21",
+      "importance": 2.5386667536063342e-05,
+      "importance_norm": 0.13168889351550467,
+      "group": "래그",
+      "rank": 69
+    },
+    {
+      "feature": "인천_최대풍속",
+      "importance": 2.518848001369709e-05,
+      "importance_norm": 0.1306608304390132,
+      "group": "기상",
+      "rank": 70
+    },
+    {
+      "feature": "부산_lag14",
+      "importance": 2.500152980162213e-05,
+      "importance_norm": 0.12969105894239327,
+      "group": "래그",
+      "rank": 71
+    },
+    {
+      "feature": "부산_광양_spread",
+      "importance": 2.4077421705314515e-05,
+      "importance_norm": 0.12489740997217715,
+      "group": "기타",
+      "rank": 72
+    },
+    {
+      "feature": "부산_울산_spread",
+      "importance": 2.3458423586864215e-05,
+      "importance_norm": 0.12168646559788691,
+      "group": "기타",
+      "rank": 73
+    },
+    {
+      "feature": "광양_lag2",
+      "importance": 2.2338287954325998e-05,
+      "importance_norm": 0.11587595810111911,
+      "group": "래그",
+      "rank": 74
+    },
+    {
+      "feature": "광양_lag1",
+      "importance": 2.1642767585516565e-05,
+      "importance_norm": 0.1122680679494914,
+      "group": "래그",
+      "rank": 75
+    },
+    {
+      "feature": "부산_컨테이너비율",
+      "importance": 2.102698596711638e-05,
+      "importance_norm": 0.10907380860611317,
+      "group": "선박유형",
+      "rank": 76
+    },
+    {
+      "feature": "부산_벌크비율",
+      "importance": 2.0535202727221304e-05,
+      "importance_norm": 0.10652276914340096,
+      "group": "선박유형",
+      "rank": 77
+    },
+    {
+      "feature": "인천_lag3",
+      "importance": 1.9932314596984444e-05,
+      "importance_norm": 0.10339539251266595,
+      "group": "래그",
+      "rank": 78
+    },
+    {
+      "feature": "인천_lag14",
+      "importance": 1.954999331514556e-05,
+      "importance_norm": 0.10141216779436567,
+      "group": "래그",
+      "rank": 79
+    },
+    {
+      "feature": "울산_습도",
+      "importance": 1.8682020358114654e-05,
+      "importance_norm": 0.09690971003182527,
+      "group": "기상",
+      "rank": 80
+    },
+    {
+      "feature": "인천_풍속",
+      "importance": 1.7286031107273224e-05,
+      "importance_norm": 0.08966826018254138,
+      "group": "기상",
+      "rank": 81
+    },
+    {
+      "feature": "인천_ma30",
+      "importance": 1.6357149125649078e-05,
+      "importance_norm": 0.08484984751798803,
+      "group": "이동평균",
+      "rank": 82
+    },
+    {
+      "feature": "부산_습도",
+      "importance": 1.3950674582388742e-05,
+      "importance_norm": 0.07236668211532152,
+      "group": "기상",
+      "rank": 83
+    },
+    {
+      "feature": "울산_광양_spread",
+      "importance": 1.3893053818094435e-05,
+      "importance_norm": 0.07206778448794858,
+      "group": "기타",
+      "rank": 84
+    },
+    {
+      "feature": "인천_lag7",
+      "importance": 1.2869762361396417e-05,
+      "importance_norm": 0.0667596391992847,
+      "group": "래그",
+      "rank": 85
+    },
+    {
+      "feature": "인천_ma14",
+      "importance": 1.1015360397966868e-05,
+      "importance_norm": 0.05714025365566778,
+      "group": "이동평균",
+      "rank": 86
+    },
+    {
+      "feature": "광양_최대풍속",
+      "importance": 1.07537545303359e-05,
+      "importance_norm": 0.05578321901547537,
+      "group": "기상",
+      "rank": 87
+    },
+    {
+      "feature": "부산_인천_spread",
+      "importance": 1.027879291952447e-05,
+      "importance_norm": 0.053319438808748884,
+      "group": "기타",
+      "rank": 88
+    },
+    {
+      "feature": "부산_풍속",
+      "importance": 9.836723958142614e-06,
+      "importance_norm": 0.05102628346257254,
+      "group": "기상",
+      "rank": 89
+    },
+    {
+      "feature": "부산_기온",
+      "importance": 9.162855553891289e-06,
+      "importance_norm": 0.04753070908657957,
+      "group": "기상",
+      "rank": 90
+    },
+    {
+      "feature": "인천_기온",
+      "importance": 8.790569439104565e-06,
+      "importance_norm": 0.04559954004055155,
+      "group": "기상",
+      "rank": 91
+    },
+    {
+      "feature": "인천_ma7",
+      "importance": 7.2731667848483805e-06,
+      "importance_norm": 0.03772827941634308,
+      "group": "이동평균",
+      "rank": 92
+    },
+    {
+      "feature": "인천_lag28",
+      "importance": 7.004028319129496e-06,
+      "importance_norm": 0.03633217074226713,
+      "group": "래그",
+      "rank": 93
+    },
+    {
+      "feature": "인천_lag21",
+      "importance": 5.404959844729608e-06,
+      "importance_norm": 0.028037282972924973,
+      "group": "래그",
+      "rank": 94
+    },
+    {
+      "feature": "인천_강수량",
+      "importance": 4.071499222992289e-06,
+      "importance_norm": 0.021120189440517422,
+      "group": "기상",
+      "rank": 95
+    }
+  ],
+  "group_summary": [
+    {
+      "group": "래그",
+      "importance": 0.0014740255159823292,
+      "pct": 27.6
+    },
+    {
+      "group": "선박유형",
+      "importance": 0.001286340975545773,
+      "pct": 24.1
+    },
+    {
+      "group": "입항통계",
+      "importance": 0.0008395302023069557,
+      "pct": 15.7
+    },
+    {
+      "group": "기상",
+      "importance": 0.0006417815375620497,
+      "pct": 12.0
+    },
+    {
+      "group": "이동평균",
+      "importance": 0.0006228906663725162,
+      "pct": 11.7
+    },
+    {
+      "group": "체선율",
+      "importance": 0.0002738051896079953,
+      "pct": 5.1
+    },
+    {
+      "group": "시간",
+      "importance": 0.00013127051264835897,
+      "pct": 2.5
+    },
+    {
+      "group": "기타",
+      "importance": 7.170769202979764e-05,
+      "pct": 1.3
+    }
+  ],
+  "port_shap": {
+    "부산": {
+      "top_features": [
+        {
+          "feature": "울산_체선율",
+          "importance": 0.0006459342340124252,
+          "importance_norm": 1.0,
+          "group": "체선율",
+          "rank": 1
+        },
+        {
+          "feature": "울산_입항수",
+          "importance": 0.0005823128952244982,
+          "importance_norm": 0.9015049281523246,
+          "group": "입항통계",
+          "rank": 2
+        },
+        {
+          "feature": "인천_입항수",
+          "importance": 0.0005466745126281556,
+          "importance_norm": 0.8463315363118525,
+          "group": "입항통계",
+          "rank": 3
+        },
+        {
+          "feature": "광양_ma14",
+          "importance": 0.0005348507146501413,
+          "importance_norm": 0.8280265799317471,
+          "group": "이동평균",
+          "rank": 4
+        },
+        {
+          "feature": "month",
+          "importance": 0.0005252131256989528,
+          "importance_norm": 0.8131061926172035,
+          "group": "시간",
+          "rank": 5
+        },
+        {
+          "feature": "부산_입항수",
+          "importance": 0.0005200592707184236,
+          "importance_norm": 0.8051272766391566,
+          "group": "입항통계",
+          "rank": 6
+        },
+        {
+          "feature": "부산_ma7",
+          "importance": 0.0005008178010112949,
+          "importance_norm": 0.7753386871915836,
+          "group": "이동평균",
+          "rank": 7
+        },
+        {
+          "feature": "부산_평균체류",
+          "importance": 0.0004639108042131786,
+          "importance_norm": 0.7182012963323674,
+          "group": "입항통계",
+          "rank": 8
+        },
+        {
+          "feature": "광양_체선율",
+          "importance": 0.0004434514379049432,
+          "importance_norm": 0.6865272260773423,
+          "group": "체선율",
+          "rank": 9
+        },
+        {
+          "feature": "울산_벌크비율",
+          "importance": 0.00042990123734387524,
+          "importance_norm": 0.6655495477819893,
+          "group": "선박유형",
+          "rank": 10
+        },
+        {
+          "feature": "광양_lag14",
+          "importance": 0.00037291608320825717,
+          "importance_norm": 0.5773282535154868,
+          "group": "래그",
+          "rank": 11
+        },
+        {
+          "feature": "부산_lag28",
+          "importance": 0.0003643562995654719,
+          "importance_norm": 0.5640764653425431,
+          "group": "래그",
+          "rank": 12
+        },
+        {
+          "feature": "인천_유조선비율",
+          "importance": 0.00034466254035263663,
+          "importance_norm": 0.533587666056428,
+          "group": "선박유형",
+          "rank": 13
+        },
+        {
+          "feature": "울산_lag1",
+          "importance": 0.00033932645201358735,
+          "importance_norm": 0.5253266263745668,
+          "group": "래그",
+          "rank": 14
+        },
+        {
+          "feature": "부산_lag2",
+          "importance": 0.0003276041343084121,
+          "importance_norm": 0.507178776194281,
+          "group": "래그",
+          "rank": 15
+        }
+      ],
+      "group_summary": [
+        {
+          "group": "래그",
+          "importance": 0.005629575875367516,
+          "pct": 29.9
+        },
+        {
+          "group": "선박유형",
+          "importance": 0.003400117158510565,
+          "pct": 18.1
+        },
+        {
+          "group": "이동평균",
+          "importance": 0.0028218747740650385,
+          "pct": 15.0
+        },
+        {
+          "group": "입항통계",
+          "importance": 0.0026216150123100097,
+          "pct": 13.9
+        },
+        {
+          "group": "기상",
+          "importance": 0.0018032262094003105,
+          "pct": 9.6
+        },
+        {
+          "group": "체선율",
+          "importance": 0.0014795312265231074,
+          "pct": 7.9
+        },
+        {
+          "group": "시간",
+          "importance": 0.0007615908242292466,
+          "pct": 4.0
+        },
+        {
+          "group": "기타",
+          "importance": 0.0002982770266674337,
+          "pct": 1.6
+        }
+      ]
+    },
+    "울산": {
+      "top_features": [
+        {
+          "feature": "울산_체선율",
+          "importance": 0.0009391641385125724,
+          "importance_norm": 1.0,
+          "group": "체선율",
+          "rank": 1
+        },
+        {
+          "feature": "울산_ma7",
+          "importance": 0.0008770681916867297,
+          "importance_norm": 0.9338816887491158,
+          "group": "이동평균",
+          "rank": 2
+        },
+        {
+          "feature": "울산_lag1",
+          "importance": 0.0007800857371834172,
+          "importance_norm": 0.8306170404024369,
+          "group": "래그",
+          "rank": 3
+        },
+        {
+          "feature": "광양_ma14",
+          "importance": 0.0007614336835680738,
+          "importance_norm": 0.8107567701360657,
+          "group": "이동평균",
+          "rank": 4
+        },
+        {
+          "feature": "month",
+          "importance": 0.0007059140912048384,
+          "importance_norm": 0.751640807242544,
+          "group": "시간",
+          "rank": 5
+        },
+        {
+          "feature": "광양_lag14",
+          "importance": 0.0005984477554759921,
+          "importance_norm": 0.6372131674701725,
+          "group": "래그",
+          "rank": 6
+        },
+        {
+          "feature": "울산_ma14",
+          "importance": 0.0004921245520950354,
+          "importance_norm": 0.5240027082746702,
+          "group": "이동평균",
+          "rank": 7
+        },
+        {
+          "feature": "울산_lag7",
+          "importance": 0.0004901173903729415,
+          "importance_norm": 0.5218655294368232,
+          "group": "래그",
+          "rank": 8
+        },
+        {
+          "feature": "부산_유조선비율",
+          "importance": 0.00048639081071774685,
+          "importance_norm": 0.5178975546149813,
+          "group": "선박유형",
+          "rank": 9
+        },
+        {
+          "feature": "dayofweek",
+          "importance": 0.00048601883535118054,
+          "importance_norm": 0.517501483948191,
+          "group": "시간",
+          "rank": 10
+        },
+        {
+          "feature": "울산_lag2",
+          "importance": 0.00046873384260554316,
+          "importance_norm": 0.49909682810920947,
+          "group": "래그",
+          "rank": 11
+        },
+        {
+          "feature": "광양_유조선비율",
+          "importance": 0.0004608691391615628,
+          "importance_norm": 0.49072267590144275,
+          "group": "선박유형",
+          "rank": 12
+        },
+        {
+          "feature": "광양_ma30",
+          "importance": 0.0004389793299858632,
+          "importance_norm": 0.46741491927184214,
+          "group": "이동평균",
+          "rank": 13
+        },
+        {
+          "feature": "광양_lag1",
+          "importance": 0.0004134072015508024,
+          "importance_norm": 0.44018631525427243,
+          "group": "래그",
+          "rank": 14
+        },
+        {
+          "feature": "광양_컨테이너비율",
+          "importance": 0.0004118145149471216,
+          "importance_norm": 0.4384904598245674,
+          "group": "선박유형",
+          "rank": 15
+        }
+      ],
+      "group_summary": [
+        {
+          "group": "래그",
+          "importance": 0.006968258208479658,
+          "pct": 32.2
+        },
+        {
+          "group": "이동평균",
+          "importance": 0.003958346097167908,
+          "pct": 18.3
+        },
+        {
+          "group": "선박유형",
+          "importance": 0.0037362084427962202,
+          "pct": 17.2
+        },
+        {
+          "group": "기상",
+          "importance": 0.002377850682910217,
+          "pct": 11.0
+        },
+        {
+          "group": "체선율",
+          "importance": 0.0015911484772094617,
+          "pct": 7.3
+        },
+        {
+          "group": "시간",
+          "importance": 0.0014795211557489026,
+          "pct": 6.8
+        },
+        {
+          "group": "입항통계",
+          "importance": 0.0011877823334550538,
+          "pct": 5.5
+        },
+        {
+          "group": "기타",
+          "importance": 0.00036393627703988483,
+          "pct": 1.7
+        }
+      ]
+    },
+    "인천": {
+      "top_features": [
+        {
+          "feature": "인천_유조선비율",
+          "importance": 0.00016940105219909443,
+          "importance_norm": 1.0,
+          "group": "선박유형",
+          "rank": 1
+        },
+        {
+          "feature": "인천_벌크비율",
+          "importance": 0.00014388172814950396,
+          "importance_norm": 0.849355575314857,
+          "group": "선박유형",
+          "rank": 2
+        },
+        {
+          "feature": "울산_입항수",
+          "importance": 0.00014284261317085433,
+          "importance_norm": 0.8432215226324192,
+          "group": "입항통계",
+          "rank": 3
+        },
+        {
+          "feature": "울산_체선율",
+          "importance": 0.00013929751890726756,
+          "importance_norm": 0.822294295690403,
+          "group": "체선율",
+          "rank": 4
+        },
+        {
+          "feature": "울산_lag7",
+          "importance": 0.00013832713909423954,
+          "importance_norm": 0.8165659970734173,
+          "group": "래그",
+          "rank": 5
+        },
+        {
+          "feature": "인천_입항수",
+          "importance": 0.0001353860790687799,
+          "importance_norm": 0.7992044754814318,
+          "group": "입항통계",
+          "rank": 6
+        },
+        {
+          "feature": "울산_lag14",
+          "importance": 0.0001333908976029097,
+          "importance_norm": 0.7874266179063483,
+          "group": "래그",
+          "rank": 7
+        },
+        {
+          "feature": "울산_일반화물비율",
+          "importance": 0.00013088411108774924,
+          "importance_norm": 0.7726286784448256,
+          "group": "선박유형",
+          "rank": 8
+        },
+        {
+          "feature": "광양_컨테이너비율",
+          "importance": 0.00013028196468500212,
+          "importance_norm": 0.7690741172722101,
+          "group": "선박유형",
+          "rank": 9
+        },
+        {
+          "feature": "부산_평균체류",
+          "importance": 0.00012329776734328377,
+          "importance_norm": 0.7278453453664138,
+          "group": "입항통계",
+          "rank": 10
+        },
+        {
+          "feature": "광양_ma14",
+          "importance": 0.00012196129048613252,
+          "importance_norm": 0.719955920597195,
+          "group": "이동평균",
+          "rank": 11
+        },
+        {
+          "feature": "광양_체선율",
+          "importance": 0.00011826083675776493,
+          "importance_norm": 0.6981115832667604,
+          "group": "체선율",
+          "rank": 12
+        },
+        {
+          "feature": "울산_벌크비율",
+          "importance": 0.00010823205421825608,
+          "importance_norm": 0.6389101650387191,
+          "group": "선박유형",
+          "rank": 13
+        },
+        {
+          "feature": "울산_ma7",
+          "importance": 0.00010681364332964633,
+          "importance_norm": 0.6305370713052592,
+          "group": "이동평균",
+          "rank": 14
+        },
+        {
+          "feature": "울산_lag28",
+          "importance": 0.00010448308415167403,
+          "importance_norm": 0.616779428435171,
+          "group": "래그",
+          "rank": 15
+        }
+      ],
+      "group_summary": [
+        {
+          "group": "래그",
+          "importance": 0.001410662415367415,
+          "pct": 26.1
+        },
+        {
+          "group": "선박유형",
+          "importance": 0.0013036329814012759,
+          "pct": 24.1
+        },
+        {
+          "group": "입항통계",
+          "importance": 0.0007338316061862389,
+          "pct": 13.6
+        },
+        {
+          "group": "이동평균",
+          "importance": 0.0006799553834658928,
+          "pct": 12.6
+        },
+        {
+          "group": "기상",
+          "importance": 0.0006538010805969808,
+          "pct": 12.1
+        },
+        {
+          "group": "체선율",
+          "importance": 0.00035305009145182993,
+          "pct": 6.5
+        },
+        {
+          "group": "시간",
+          "importance": 0.00016611383056930616,
+          "pct": 3.1
+        },
+        {
+          "group": "기타",
+          "importance": 0.00010762838111117668,
+          "pct": 2.0
+        }
+      ]
+    },
+    "광양": {
+      "top_features": [
+        {
+          "feature": "광양_ma14",
+          "importance": 0.00029542931837367616,
+          "importance_norm": 1.0,
+          "group": "이동평균",
+          "rank": 1
+        },
+        {
+          "feature": "울산_체선율",
+          "importance": 0.0002627775518226843,
+          "importance_norm": 0.8894768916953191,
+          "group": "체선율",
+          "rank": 2
+        },
+        {
+          "feature": "울산_습도",
+          "importance": 0.00026190545358209055,
+          "importance_norm": 0.886524922522474,
+          "group": "기상",
+          "rank": 3
+        },
+        {
+          "feature": "광양_ma30",
+          "importance": 0.0002457048643878832,
+          "importance_norm": 0.8316874768573287,
+          "group": "이동평균",
+          "rank": 4
+        },
+        {
+          "feature": "dayofweek",
+          "importance": 0.0002397895449708815,
+          "importance_norm": 0.8116646861283475,
+          "group": "시간",
+          "rank": 5
+        },
+        {
+          "feature": "울산_ma14",
+          "importance": 0.00023880263313926523,
+          "importance_norm": 0.8083240839259351,
+          "group": "이동평균",
+          "rank": 6
+        },
+        {
+          "feature": "부산_입항수",
+          "importance": 0.0002337888459650264,
+          "importance_norm": 0.7913528936532856,
+          "group": "입항통계",
+          "rank": 7
+        },
+        {
+          "feature": "부산_lag28",
+          "importance": 0.00022947416055551004,
+          "importance_norm": 0.7767480960209162,
+          "group": "래그",
+          "rank": 8
+        },
+        {
+          "feature": "광양_lag28",
+          "importance": 0.00021382495977981638,
+          "importance_norm": 0.7237770474403564,
+          "group": "래그",
+          "rank": 9
+        },
+        {
+          "feature": "is_weekend",
+          "importance": 0.00019631348743736116,
+          "importance_norm": 0.6645023876372773,
+          "group": "시간",
+          "rank": 10
+        },
+        {
+          "feature": "울산_lag1",
+          "importance": 0.00019290869323441417,
+          "importance_norm": 0.6529774847546175,
+          "group": "래그",
+          "rank": 11
+        },
+        {
+          "feature": "부산_유조선비율",
+          "importance": 0.00019181618413743437,
+          "importance_norm": 0.6492794459039238,
+          "group": "선박유형",
+          "rank": 12
+        },
+        {
+          "feature": "울산_lag3",
+          "importance": 0.00018594769559224006,
+          "importance_norm": 0.6294151731990344,
+          "group": "래그",
+          "rank": 13
+        },
+        {
+          "feature": "울산_ma7",
+          "importance": 0.0001840734506351434,
+          "importance_norm": 0.6230710331948727,
+          "group": "이동평균",
+          "rank": 14
+        },
+        {
+          "feature": "광양_체선율",
+          "importance": 0.0001811572943136207,
+          "importance_norm": 0.6132001228276281,
+          "group": "체선율",
+          "rank": 15
+        }
+      ],
+      "group_summary": [
+        {
+          "group": "래그",
+          "importance": 0.002954347736870447,
+          "pct": 29.8
+        },
+        {
+          "group": "선박유형",
+          "importance": 0.0018051467566987279,
+          "pct": 18.2
+        },
+        {
+          "group": "이동평균",
+          "importance": 0.0015166344839806609,
+          "pct": 15.3
+        },
+        {
+          "group": "기상",
+          "importance": 0.0014391082743779547,
+          "pct": 14.5
+        },
+        {
+          "group": "입항통계",
+          "importance": 0.0008466593402623396,
+          "pct": 8.6
+        },
+        {
+          "group": "체선율",
+          "importance": 0.0006216060411743997,
+          "pct": 6.3
+        },
+        {
+          "group": "시간",
+          "importance": 0.0005617101457835397,
+          "pct": 5.7
+        },
+        {
+          "group": "기타",
+          "importance": 0.00015360380060692625,
+          "pct": 1.6
+        }
+      ]
+    }
+  }
+}

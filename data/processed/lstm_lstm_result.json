@@ -1,0 +1,6 @@
+{
+  "lstm_a": {
+    "hidden": 128,
+    "layers": 2,
+    "features": 84,
+    "RMSE": 

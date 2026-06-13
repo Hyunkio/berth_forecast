@@ -1,0 +1,31 @@
+# 환경 변수 (API 키)
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# macOS
+.DS_Store
+
+# 원본 데이터 (대용량)
+data/raw/
+
+# 전처리 데이터 (대용량 바이너리)
+data/processed/*.npy
+data/processed/*.pkl
+data/processed/vessel_clean.csv
+
+# 모델 가중치
+*.pt
+
+# Jupyter
+.ipynb_checkpoints/
+
+# 도구 자동 생성 폴더
+.playwright-mcp/
+anaconda_projects/
+
+# 임시 스크린샷
+*.png

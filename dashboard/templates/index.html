@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>항만 체선 예측 시스템</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <div>
+          <h1 class="header-title">국내 주요 항만 체선 예측 시스템</h1>
+          <p class="header-sub">부산 · 울산 · 인천 · 광양 | 앙상블 (LSTM + Transformer) 기반 향후 7일 예측</p>
+        </div>
+        <div class="header-badge">
+          <span id="update-time"></span>
+          <span id="data-status-badge" class="data-badge" title="예측 기준 데이터 최신일"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 내비게이션 탭 -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-tabs">
+        <button class="nav-tab active" data-tab="forecast">예측 결과</button>
+        <button class="nav-tab" data-tab="history">과거 데이터</button>
+        <button class="nav-tab" data-tab="comparison">모델 비교</button>
+        <button class="nav-tab" data-tab="analysis">연쇄 혼잡 분석</button>
+      </div>
+      <div class="model-selector">
+        <label>모델</label>
+        <select id="model-select">
+          <option value="transformer">Transformer (수치 전용)</option>
+          <option value="transformer_event">Transformer + 이벤트 피처</option>
+          <option value="ensemble" selected>앙상블 (LSTM + Transformer)</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container main">
+
+    <!-- TAB 1: 예측 결과 -->
+    <section id="tab-forecast" class="tab-content active">
+
+      <!-- 항만 카드 4개 -->
+      <div class="port-grid">
+        <div class="port-card" id="card-부산" data-port="부산" data-idx="0">
+          <div class="port-card-header">
+            <span class="port-name">부산항</span>
+            <span class="risk-badge" id="badge-부산">-</span>
+          </div>
+          <div class="port-metric">
+            <span class="metric-label">최고 예측 체선율</span>
+            <span class="metric-value" id="max-부산">-</span>
+          </div>
+          <div class="port-metric">
+            <span class="metric-label">최고 도달 시점</span>
+            <span class="metric-value" id="peak-부산">-</span>
+          </div>
+        </div>
+        <div class="port-card" id="card-울산" data-port="울산" data-idx="1">
+          <div class="port-card-header">
+            <span class="port-name">울산항</span>
+            <span class="risk-badge" id="badge-울산">-</span>
+          </div>
+          <div class="port-metric">
+            <span class="metric-label">최고 예측 체선율</span>
+            <span class="metric-value" id="max-울산">-</span>
+          </div>
+          <div class="port-metric">
+            <span class="metric-label">최고 도달 시점</span>
+            <span class="metric-value" id="peak-울산">-</span>
+          </div>
+        </div>
+        <div class="port-card" id="card-인천" data-port="인천" data-idx="2">
+          <div class="port-card-header">
+            <span class="port-name">인천항</span>
+            <span class="risk-badge" id="badge-인천">-</span>
+          </div>
+          <div class="port-metric">
+            <span class="metric-label">최고 예측 체선율</span>
+            <span class="metric-value" id="max-인천">-</span>
+          </div>
+          <div class="port-metric">
+            <span class="metric-label">최고 도달 시점</span>
+            <span class="metric-value" id="peak-인천">-</span>
+          </div>
+        </div>
+        <div class="port-card" id="card-광양" data-port="광양" data-idx="3">
+          <div class="port-card-header">
+            <span class="port-name">광양항</span>
+            <span class="risk-badge" id="badge-광양">-</span>
+          </div>
+          <div class="port-metric">
+            <span class="metric-label">최고 예측 체선율</span>
+            <span class="metric-value" id="max-광양">-</span>
+          </div>
+          <div class="port-metric">
+            <span class="metric-label">최고 도달 시점</span>
+            <span class="metric-value" id="peak-광양">-</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI 입항 전략 브리핑 -->
+      <div class="card mt-24" id="summary-card">
+        <div class="card-header">
+          <h2 class="card-title">AI 입항 전략 브리핑</h2>
+        </div>
+        <div class="summary-body" id="summary-text">
+          <span class="summary-loading">분석 중...</span>
+        </div>
+      </div>
+
+      <!-- 항만별 최적 입항 추천 -->
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">항만별 최적 입항 추천</h2>
+        </div>
+        <div class="rec-grid" id="rec-grid"></div>
+        <div class="best-banner-wrap" id="best-banner-wrap"></div>
+      </div>
+
+      <!-- 상세 예측 차트 -->
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">항만별 7일 체선율 예측</h2>
+          <div class="port-tabs">
+            <button class="port-tab active" data-port="부산">부산</button>
+            <button class="port-tab" data-port="울산">울산</button>
+            <button class="port-tab" data-port="인천">인천</button>
+            <button class="port-tab" data-port="광양">광양</button>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="forecast-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- 예측값 테이블 -->
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">7일 예측 수치</h2>
+        </div>
+        <div class="table-wrap">
+          <table id="forecast-table">
+            <thead>
+              <tr>
+                <th>일자</th>
+                <th>부산항</th>
+                <th>울산항</th>
+                <th>인천항</th>
+                <th>광양항</th>
+              </tr>
+            </thead>
+            <tbody id="forecast-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: 과거 데이터 -->
+    <section id="tab-history" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">과거 체선율 추이 (최근 180일)</h2>
+          <div class="port-tabs" id="history-port-tabs">
+            <button class="port-tab active" data-port="부산">부산</button>
+            <button class="port-tab" data-port="울산">울산</button>
+            <button class="port-tab" data-port="인천">인천</button>
+            <button class="port-tab" data-port="광양">광양</button>
+          </div>
+        </div>
+        <div class="chart-wrap chart-wrap-lg">
+          <canvas id="history-chart"></canvas>
+        </div>
+        <div class="stat-row" id="history-stats"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: 모델 비교 -->
+    <section id="tab-comparison" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">모델 성능 비교</h2>
+        </div>
+        <div class="table-wrap">
+          <table id="metric-table">
+            <thead>
+              <tr>
+                <th>모델</th>
+                <th>MAE</th>
+                <th>RMSE</th>
+              </tr>
+            </thead>
+            <tbody id="metric-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">항만별 RMSE</h2>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="port-rmse-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- SHAP 피처 중요도 -->
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">SHAP 피처 중요도 (LSTM)</h2>
+          <div class="port-tabs" id="shap-port-tabs">
+            <button class="port-tab active" data-shap-port="전체">전체</button>
+            <button class="port-tab" data-shap-port="부산">부산</button>
+            <button class="port-tab" data-shap-port="울산">울산</button>
+            <button class="port-tab" data-shap-port="인천">인천</button>
+            <button class="port-tab" data-shap-port="광양">광양</button>
+          </div>
+        </div>
+        <p class="card-desc">GradientExplainer로 계산한 피처별 SHAP 절댓값 평균 (테스트셋 96개 윈도우 × 30 타임스텝).</p>
+        <div class="shap-layout">
+          <div class="chart-wrap chart-wrap-shap">
+            <canvas id="shap-bar-chart"></canvas>
+          </div>
+          <div class="shap-group-wrap">
+            <div class="shap-group-title">그룹별 기여도</div>
+            <div id="shap-group-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">시스템 설계 요약</h2>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">예측 모델</span>
+            <span class="info-value">Transformer Encoder (Pre-LN, d=64)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">입력 윈도우</span>
+            <span class="info-value">과거 30일</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">예측 horizon</span>
+            <span class="info-value">향후 7일</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">피처 수</span>
+            <span class="info-value">79개 (수치+기상) / 87개 (+이벤트·기상플래그)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">타겟 변수</span>
+            <span class="info-value">항만별 체선율 (체류시간 90th pct 기반)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">연쇄 혼잡 lag</span>
+            <span class="info-value">부산→울산 2일, 부산→광양·인천 1일</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">LLM Agent</span>
+            <span class="info-value">Claude Haiku — 이벤트 분류 (파업/기상/물동량)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">학습 데이터</span>
+            <span class="info-value">2024.06.20 ~ 2026.05.19 (352,365건)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: 연쇄 혼잡 분석 -->
+    <section id="tab-analysis" class="tab-content">
+
+      <!-- CCF 연쇄 혼잡 -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">항만 간 연쇄 혼잡 전이 (CCF 분석)</h2>
+        </div>
+        <p class="card-desc">부산항 혼잡이 인근 항만으로 전파되는 시간 지연(lag)을 교차상관분석으로 정량화했습니다.</p>
+        <div class="ccf-grid" id="ccf-grid">
+          <div class="ccf-loading">분석 데이터 로드 중...</div>
+        </div>
+      </div>
+
+      <!-- CCF 차트 -->
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">부산 → 타 항만 교차상관 계수</h2>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="ccf-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Attention 히트맵 -->
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">Transformer Attention 패턴</h2>
+        </div>
+        <p class="card-desc">Transformer가 과거 30일 중 어느 시점에 주목하는지 평균 어텐션 가중치로 표시합니다.</p>
+        <div class="chart-wrap">
+          <canvas id="attention-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- 월별 RMSE 백테스팅 -->
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">테스트셋 월별 RMSE (백테스팅)</h2>
+        </div>
+        <p class="card-desc">테스트 기간(2026년 1~5월)의 월별 예측 오차를 모델별로 비교합니다.</p>
+        <div class="chart-wrap">
+          <canvas id="backtest-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- 이벤트 기간 조건부 성능 분석 -->
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">이벤트 기간 조건부 성능 분석</h2>
+        </div>
+        <p class="card-desc">이벤트 발생 윈도우(<span id="n-event-win">-</span>개)와 평시 윈도우(<span id="n-normal-win">-</span>개)의 RMSE를 모델별로 비교합니다. 이벤트 기간에 예측 오차가 더 크며, 이것이 LLM 이벤트 피처의 필요성을 뒷받침합니다.</p>
+        <div class="chart-wrap">
+          <canvas id="event-rmse-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- 파업 케이스 스터디 -->
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">케이스 스터디: 2026-04-30 파업 당일 예측 실패</h2>
+        </div>
+        <p class="card-desc">파업 전주(4/23)는 거의 정확하게 예측했으나, 파업 당일의 급등은 수치 모델이 포착하지 못했습니다. 이것이 LLM 이벤트 피처가 필요한 이유입니다.</p>
+        <div id="case-study-wrap" class="case-study-wrap"></div>
+      </div>
+
+      <!-- LLM 이벤트 분류 데모 -->
+      <div class="card mt-24">
+        <div class="card-header">
+          <h2 class="card-title">LLM Agent 이벤트 분류 데모</h2>
+        </div>
+        <p class="card-desc">항만 관련 뉴스 헤드라인을 입력하면 Claude가 실시간으로 이벤트 유형을 분류합니다.</p>
+        <div class="classify-demo">
+          <div class="classify-input-row">
+            <input type="text" id="classify-input" placeholder="예: 부산항 화물연대 파업 돌입, 컨테이너 처리 중단"
+                   value="홍해 사태 장기화로 국내 항만 물동량 급증">
+            <button id="classify-btn" class="classify-btn">분류</button>
+          </div>
+          <div id="classify-result" class="classify-result"></div>
+        </div>
+        <div class="card-header mt-24" style="border-top:1px solid #f0f2f5;padding-top:16px;">
+          <h2 class="card-title" style="font-size:14px">분류 통계 (총 796건 분석)</h2>
+        </div>
+        <div id="event-samples-grid" class="event-samples-grid"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
