@@ -47,7 +47,7 @@ df['체선여부'] = (df['지연시간_시간'] > THRESHOLD_HOURS).astype(int)
 
 > ⚠️ **출항예정일시 결측 대응**: EDA에서 결측률 먼저 확인. 결측률 > 30% 시 플랜 B로 전환 — 항만별·선박유형별 체류시간 90 percentile 초과를 체선으로 정의.
 
-> ⚠️ **중요**: 울산항만공사 체선정보 API(WAIT_CNT)는 실제 데이터 접근 불량으로 사용 불가 판정. 위 방법으로 타겟 변수를 직접 생성한다. 이를 Feature Engineering으로 타겟을 직접 생성함.
+> ⚠️ **중요**: 울산항만공사 체선정보 API(WAIT_CNT)는 실제 데이터 접근 불량으로 사용 불가 판정. 위 방법으로 타겟 변수를 직접 생성한다.
 
 #### 데이터 집계 단위
 - **기본 단위**: 일별(Daily) 집계 — Transformer 학습용
@@ -62,7 +62,7 @@ df['체선여부'] = (df['지연시간_시간'] > THRESHOLD_HOURS).astype(int)
 
 #### 보조 데이터 (수집 예정)
 - **기상청 해상 기상 API**: 파고, 풍속, 시정 (항만별 관측소 코드 확인 필요)
-- **항만 관련 뉴스**: 네이버 뉴스 크롤링 → LLM Agent로 이벤트 분류 (상세 내용은 섹션 4 참조)
+- **항만 관련 뉴스**: 네이버 뉴스 크롤링 → LLM Agent로 이벤트 분류 (상세 내용은 섹션 3 참조)
 - **글로벌 해운 뉴스 + SCFI**: 상하이컨테이너운임지수 관련 뉴스 (이벤트 피처 보강)
 
 ### 확인된 API 정보
@@ -74,17 +74,15 @@ df['체선여부'] = (df['지연시간_시간'] > THRESHOLD_HOURS).astype(int)
   - `030`: 인천 (확인 완료)
   - `031`, `034`, `035`, `050`: 추가 확인 필요 (울산·광양 포함 예상)
 - **주요 파라미터**: prtAgCd, sde(시작일), ede(종료일), deGb(I:입항기준/O:출항기준)
-- **용도**: 플랜 B - 학습 데이터 보완 및 실시간 파이프라인용
+- **용도**: 학습 데이터 보완 및 실시간 파이프라인용
 
 ---
 
 ## 3. 모델 구조
 
-> **교수님 피드백 반영**: Stage 2·3 통합 → Transformer 단일 아키텍처로 단일/멀티 항만 모두 처리. LSTM은 대조군으로만 활용.
-
-### 대조군: LSTM (선택적)
+### 대조군: LSTM
 ```
-목적: 베이스라인 성능 비교용 (메인 모델 아님)
+목적: 베이스라인 성능 비교용
 입력: 과거 30일 단일 항만 시계열
 출력: 향후 7일 체선 위험 확률
 평가: Transformer 대비 RMSE 비교
@@ -123,7 +121,7 @@ df['체선여부'] = (df['지연시간_시간'] > THRESHOLD_HOURS).astype(int)
 
 성능 비교 실험:
   LSTM (대조군) vs Transformer (수치만) vs Transformer + 이벤트 피처
-  → 이벤트 피처 추가 시 RMSE 개선율 정량화 필수
+  → 이벤트 피처 추가 시 RMSE 개선율 정량화
 ```
 
 ---
@@ -202,7 +200,7 @@ LLM Agent: Claude API (claude-haiku-4-5, 이벤트 분류용)
 API 수집: requests, anthropic
 크롤링: BeautifulSoup, selenium (필요시)
 시각화: matplotlib, seaborn, plotly
-서비스: Streamlit
+서비스: Flask
 평가: scikit-learn
 ```
 
@@ -233,7 +231,7 @@ project/
 │   ├── features/
 │   │   └── engineer.py     ← 피처 생성 (연쇄 혼잡 lag 피처 포함)
 │   ├── models/
-│   │   ├── lstm.py         ← LSTM 대조군
+│   │   ├── lstm.py         ← LSTM 모델
 │   │   └── transformer.py  ← Transformer 메인 모델 (단일/멀티 모드)
 │   ├── agent/
 │   │   └── event_classifier.py  ← LLM Agent 이벤트 분류 파이프라인
@@ -245,7 +243,7 @@ project/
 │   ├── collect_weather.py  ← 기상 데이터 수집
 │   └── train.py            ← 모델 학습
 ├── dashboard/
-│   └── app.py              ← Streamlit 대시보드
+│   └── flask_app.py        ← Flask 대시보드
 └── requirements.txt
 ```
 
@@ -261,7 +259,7 @@ project/
    - 지연시간 분포 확인 → 체선 임계값 결정 (75~90 percentile 기준)
    - 음수 체류시간·지연시간 비율 확인
    - ACF 분석으로 최적 윈도우 크기 검증
-   - **항만 간 Cross-correlation 분석 → 연쇄 혼잡 전이 시간(lag) 정량화** ← 섹션 5 참조
+   - **항만 간 Cross-correlation 분석 → 연쇄 혼잡 전이 시간(lag) 정량화** ← 섹션 4 참조
 3. 항만별 필터링 (부산, 울산, 인천, 광양)
 4. 타겟 변수 생성 (체류시간, 지연시간, 체선여부)
 5. 이상치 처리 (음수 값, 극단값 등)
@@ -275,7 +273,7 @@ project/
 4. 뉴스 수집 및 LLM Agent 이벤트 분류 → 일별 이벤트 플래그 생성
 
 ### Phase 3: 모델 학습
-1. LSTM 대조군 학습 (선택적)
+1. LSTM 대조군 학습
 2. Transformer (수치 전용) 학습 — 단일/멀티 모드 비교
 3. Transformer + 이벤트 피처 학습 — 이벤트 추가 전후 성능 비교
 4. 하이퍼파라미터 튜닝
@@ -283,8 +281,7 @@ project/
 ### Phase 4: 결과 분석 및 서비스
 1. 성능 비교 표 작성 (LSTM vs Transformer vs Transformer+이벤트)
 2. 항만 간 연쇄 혼잡 패턴 시각화
-3. Streamlit 대시보드 구현
-4. 공모전 기획서 작성
+3. Flask 대시보드 구현
 
 ---
 
@@ -294,7 +291,7 @@ project/
    → Transformer Multi-head Attention이 연쇄 혼잡 lag를 학습하는지 검증
 
 2. **LLM Agent 이벤트 피처가 수치 모델 단독보다 예측 성능을 개선하는가?**
-   → RMSE 개선율 정량화 필수 (공모전 심사 핵심 어필 포인트)
+   → RMSE 개선율 정량화
 
 3. **홍해 사태(2024년 하반기) 같은 글로벌 이벤트가 국내 항만 체선에 영향을 미치는가?**
    → SCFI 뉴스 이벤트 피처 유효성 검증
